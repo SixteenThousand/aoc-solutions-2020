@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,7 +26,7 @@ class Day02 implements Day{
 		return result;
 	}
 	
-	public int part1(String path) throws IOException {
+	public long part1(String path) throws FileNotFoundException {
         Scanner fp = new Scanner(new File(path));
         Pattern p = Pattern.compile("(\\d+)-(\\d+) ([a-z]{1}): ([a-z]+)");
         int result = 0;
@@ -52,7 +52,7 @@ class Day02 implements Day{
 			(password.charAt(i-1) == c ^ password.charAt(j-1) == c);
 	}
 
-	public int part2(String path) throws IOException {
+	public long part2(String path) throws FileNotFoundException {
         Scanner fp = new Scanner(new File(path));
         Pattern p = Pattern.compile("(\\d+)-(\\d+) ([a-z]{1}): ([a-z]+)");
         int result = 0;

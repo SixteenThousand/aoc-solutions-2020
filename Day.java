@@ -1,9 +1,9 @@
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
 interface Day {
-    int part1(String inputPath) throws IOException;
+    long part1(String inputPath) throws FileNotFoundException;
 
-    int part2(String inputPath) throws IOException;
+    long part2(String inputPath) throws FileNotFoundException;
     
     default void printResults(String inputPath, String msg1, String msg2) {
         try {
@@ -12,7 +12,7 @@ interface Day {
                 msg1,
                 this.part1(inputPath)
             );
-        } catch(IOException err) {
+        } catch(FileNotFoundException err) {
             System.err.printf("Error reading file >>%s<<:\n",inputPath);
             System.err.println(err);
             System.exit(1);
@@ -23,7 +23,7 @@ interface Day {
                 msg2,
                 this.part2(inputPath)
             );
-        } catch(IOException err) {
+        } catch(FileNotFoundException err) {
             System.err.printf("Error reading file >>%s<<:\n",inputPath);
             System.err.println(err);
             System.exit(1);
